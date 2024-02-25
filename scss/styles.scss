@@ -23,7 +23,7 @@
         8. Project Styles
         9. Skills Styles
         10. Contact Styles
-        11. Publications Styles
+        11. Optional Section Styles
         12. Media Queries
 */
 
@@ -625,8 +625,6 @@ footer {
 }
 
 /*
-
-/*
     -------------------------------
     ----- 8. Project Styles -----
     -------------------------------
@@ -791,11 +789,11 @@ footer {
 
 /*
     ---------------------------------------
-    ----- 11. Publications Styles -----
+    ----- 11. Optional Section Styles -----
     ---------------------------------------
 */
 
-.publications {
+.optional-section {
     padding: 50px 15px;
     text-align: center;
     border-top: 1px solid $border;
@@ -805,7 +803,7 @@ footer {
     }
 }
 
-.publications-block {
+.optional-section-block {
     max-width: 700px;
     margin: 0 auto 30px auto;
     padding: 15px;
