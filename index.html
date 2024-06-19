@@ -284,4 +284,45 @@
     <script src="js/scripts.min.js"></script>
 </body>
 
+<!-- Modal for Image Pop-up -->
+<div class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+</div>
+
+<!-- JavaScript for Modal -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var modal = document.querySelectorAll('.modal');
+        var projectLinks = document.querySelectorAll('.view-project');
+        var modalImg = document.querySelector('.modal-content');
+        var modalClose = document.querySelector('.close');
+
+        // Open the modal when clicking on the "View Project" link
+        projectLinks.forEach(function(link, index) {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                modal[index].style.display = 'block';
+                modalImg.src = this.previousElementSibling.querySelector('img').src;
+            });
+        });
+
+        // Close the modal when clicking on the close button or outside the modal
+        modalClose.addEventListener('click', function() {
+            modal.forEach(function(modal) {
+                modal.style.display = 'none';
+            });
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                modal.forEach(function(modal) {
+                    modal.style.display = 'none';
+                });
+            }
+        });
+    });
+</script>
+
+	
 </html>
