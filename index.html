@@ -144,7 +144,9 @@
             <div class="row">
                 <div class="project shadow-large">
                     <div class="project-image">
+			      <a href="#" class="project-img-link">
                         <img src="images/EHD.jpg" />
+			     </a>
                     </div>
                     <!-- End .project-image -->
                     <div class="project-info">
@@ -152,10 +154,15 @@
                         <p>
 				Harvesting energy from living subjects, particularly through triboelectric and piezoelectric energy, holds significant promise for overcoming the limitations of battery capacity in wearable and implantable devices. It's an innovative approach that presents opportunities for self-powered electronics.
                         </p>
-                        
+                        <a href="#" class="view-project" data-img="images/project.jpg">View Project</a>
                     </div>
                     <!-- End .project-info -->
                 </div>
+		     <!-- Modal for Image Pop-up -->
+			<div class="modal">
+       				 <span class="close">&times;</span>
+       				 <img class="modal-content" id="img01">
+			</div>
                 <!-- End .project -->
 
                 <div class="project shadow-large">
@@ -168,9 +175,15 @@
                         <p>
 				Soft electronics is an emerging technology enabling various applications, including wearable devices and human-machine interfaces, to conform to the irregular and curvilinear human body. In the functional operation of soft electronics, stretchable conductors are essential components as electrical interconnects enhancing performance and overcoming physical constraints for various applications.
                         </p>
-                        
+                        <a href="#" class="view-project" data-img="images/project2.jpg">View Project</a>
                     </div>
                     <!-- End .project-info -->
+			<!-- Modal for Image Pop-up -->
+			<div class="modal">
+       				 <span class="close">&times;</span>
+       				 <img class="modal-content" id="modal-img-2">
+			</div>
+
                 </div>
                 <!-- End .project -->
 
@@ -187,6 +200,12 @@
                     
                 </div>
                 <!-- End .project-info -->
+		       <!-- Modal for Image Pop-up -->
+			<div class="modal">
+       				 <span class="close">&times;</span>
+       				 <img class="modal-content" id="modal-img-3">
+			</div>
+
             </div>
             <!-- End .project -->
             <!-- New project block ends here -->
@@ -287,3 +306,43 @@
 </body>
 
 </html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var modals = document.querySelectorAll('.modal');
+        var viewProjects = document.querySelectorAll('.view-project');
+        var modalImgs = document.querySelectorAll('.modal-content');
+        var modalCloses = document.querySelectorAll('.close');
+
+        // Loop through each view project link
+        viewProjects.forEach(function (viewProject, index) {
+            viewProject.addEventListener('click', function (event) {
+                event.preventDefault();
+                modals[index].style.display = 'block'; // Show the corresponding modal
+                if (index === 0) {
+                    modalImgs[index].src = 'images/jot.jpg'; // Set the image src for the first project modal
+                } else if (index === 1) {
+                    modalImgs[index].src = 'images/jot2.jpg'; // Set the image src for the second project modal
+                }
+            });
+        });
+
+        // Loop through each close button
+        modalCloses.forEach(function (modalClose) {
+            modalClose.addEventListener('click', function () {
+                modals.forEach(function (modal) {
+                    modal.style.display = 'none'; // Hide all modals when close button is clicked
+                });
+            });
+        });
+
+        // Close modal when clicking outside of it
+        window.addEventListener('click', function (event) {
+            modals.forEach(function (modal) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
