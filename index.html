@@ -183,13 +183,13 @@
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam volutpat laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget efficitur libero. Morbi dapibus porta quam laoreet placerat.
                         </p>
-                        <a href="#">View Project</a>
+                        <a href="#" class="view-project">View Project</a>
                     </div>
                     <!-- End .project-info -->
 			 <!-- Modal for Image Pop-up -->
 			<div class="modal">
        				 <span class="close">&times;</span>
-       				 <img class="modal-content" id="img02">
+       				 <img class="modal-content" id="modal-img-2">
 			</div>
 
                 </div>
@@ -300,22 +300,29 @@
         var modalImgs = document.querySelectorAll('.modal-content');
         var modalCloses = document.querySelectorAll('.close');
 
+        // Loop through each view project link
         viewProjects.forEach(function (viewProject, index) {
             viewProject.addEventListener('click', function (event) {
                 event.preventDefault();
-                modals[index].style.display = 'block';
-                modalImgs[index].src = 'images/jot.jpg'; // 원하는 이미지 파일의 경로로 변경
+                modals[index].style.display = 'block'; // Show the corresponding modal
+                if (index === 0) {
+                    modalImgs[index].src = 'images/jot.jpg'; // Set the image src for the first project modal
+                } else if (index === 1) {
+                    modalImgs[index].src = 'images/jot2.jpg'; // Set the image src for the second project modal
+                }
             });
         });
 
+        // Loop through each close button
         modalCloses.forEach(function (modalClose) {
             modalClose.addEventListener('click', function () {
                 modals.forEach(function (modal) {
-                    modal.style.display = 'none';
+                    modal.style.display = 'none'; // Hide all modals when close button is clicked
                 });
             });
         });
 
+        // Close modal when clicking outside of it
         window.addEventListener('click', function (event) {
             modals.forEach(function (modal) {
                 if (event.target == modal) {
@@ -325,4 +332,3 @@
         });
     });
 </script>
-
